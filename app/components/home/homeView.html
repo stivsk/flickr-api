@@ -1,0 +1,70 @@
+<div layout="column" layout-fill="">
+
+  <md-toolbar class="md-warn" md-scroll-shrink="">
+    <div class="md-toolbar-tools">
+		<md-button class="md-icon-button" aria-label="settings">
+         	<i class="glyphicon glyphicon-menu-hamburger"></i>
+        </md-button>
+		<h1>
+		<span>FLICKR SEARCH</span>
+		</h1>
+    </div>
+  </md-toolbar>
+
+  <md-content id="home">
+
+	<div class="app-content">
+		<form ng-submit="search()">
+			<div ng-show="!isSearching">
+				<md-input-container class="md-warn" flex>
+					<label>Search For</label>
+					<input ng-model="searchTerm">
+				</md-input-container>
+			</div>
+			 <div layout="row" layout="column" layout-align="space-around">
+		      <md-progress-circular ng-if="isSearching" class="md-warn" md-mode="indeterminate"></md-progress-circular>
+		    </div>
+		</form>
+	</div>
+
+	<md-card ng-repeat="picture in results.photos.photo">
+		<img ng-src="https://farm{{ picture.farm }}.staticflickr.com/{{ picture.server }}/{{ picture.id }}_{{ picture.secret }}_b.jpg" alt="" class="md-card-image">
+		<md-card-content>
+			<h3 class="md-title">
+				{{ picture.title }}
+			</h3>
+		</md-card-content>
+	</md-card>
+
+    
+
+
+  </md-content>
+
+</div>
+
+
+<!--<div class="jumbotron svg">
+	<div class="container">
+		<h2>We Are Here For & To You</h2>
+		<p>
+			<a href="#" class="btn btn-success	"><i class="glyphicon glyphicon-heart-empty"></i> Join the comunity</a>
+		</p>
+	</div>
+</div>
+
+<div class="container" ng-controller="homeController as home">
+	<div class="row">
+		<div ng-repeat="card in home.cards" class="col-sm-6 col-md-4">
+			<div class="thumbnail">
+				<img ng-src="{{ card.img }}" alt="">
+				<div class="caption">
+					<h3>{{ card.title }}</h3>
+					<p>{{ card.body }}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>-->
+
+	
